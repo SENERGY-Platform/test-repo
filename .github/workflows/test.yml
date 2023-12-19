@@ -1,0 +1,21 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]-beta[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set version
+        run: echo ${{ github.ref_name }} > version
+      - name: Archive Linux
+        run: tar -czvf mgw_core_installer_${{ github.ref_name }}.tar.gz version test
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: mgw_core_installer_${{ github.ref_name }}.tar.gz
