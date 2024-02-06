@@ -12,5 +12,9 @@ services:
     name: Test Service
     image: nginxdemos/hello
     httpEndpoints:
-      - name: Test
-        path: "/api"
+      - name: Test 1
+        path: "/api1"
+        extPath: "api1"
+      - name: Test 2
+        path: "/api2"
+        extPath: "api2"
