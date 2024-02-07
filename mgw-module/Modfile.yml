@@ -4,13 +4,15 @@ name: Test Module
 description: test
 license: Apache-2.0 license
 author: InfAI (CC SES)
-version: v0.0.2
+version: v0.0.3
 type: add-on
 deploymentType: single
 services:
   manager:
     name: Test Service
     image: nginxdemos/hello
+    ports:
+      - port: 80
     httpEndpoints:
       - name: Test 1
         path: "/api1"
