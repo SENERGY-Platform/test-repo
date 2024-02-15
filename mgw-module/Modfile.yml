@@ -26,6 +26,5 @@ services:
     ports:
       - port: 80
     httpEndpoints:
-      - name: Test
-        path: "/test"
-        extPath: "test"
+      - name: Test 3
+        extPath: "api3"
