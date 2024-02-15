@@ -4,7 +4,7 @@ name: Test Module
 description: test
 license: Apache-2.0 license
 author: InfAI (CC SES)
-version: v0.0.6
+version: v0.0.7
 type: add-on
 deploymentType: single
 services:
