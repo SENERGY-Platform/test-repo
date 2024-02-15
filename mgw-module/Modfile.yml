@@ -18,8 +18,8 @@ services:
         path: "/api1"
         extPath: "api1"
       - name: Test 2
-        path: "/api1"
-        extPath: "api1"
+        path: "/api2"
+        extPath: "api2"
   test-srv-2:
     name: Test Service 2
     image: nginxdemos/hello
