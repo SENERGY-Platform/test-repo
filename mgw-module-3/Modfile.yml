@@ -1,0 +1,61 @@
+modfileVersion: "v1"
+id: github.com/SENERGY-Platform/test-repo/mgw-module-3
+name: Test Module 3
+description: test 3
+license: Apache-2.0 license
+author: InfAI (CC SES)
+version: v0.0.1
+type: add-on
+deploymentType: single
+dependencies:
+  github.com/SENERGY-Platform/mgw-mqtt-broker:
+    version: "<v2.0.0"
+    requiredServices:
+      broker:
+        - refVar: MQTT_HOST
+          template: "mqtt://{ref}"
+          auxServices:
+            - test-aux-srv
+services:
+  test-srv:
+    name: Test Service 1
+    image: nginxdemos/hello
+    ports:
+      - port: 80
+serviceReferences:
+  test-srv:
+    - refVar: "TEST_SRV"
+      template: "http://{ref}"
+      auxServices:
+        - test-aux-srv
+auxServices:
+  test-aux-srv:
+    name: Aux Test Service
+    tmpfs:
+      - mountPoint: "/opt/tmp"
+        size: 64Mb
+    include:
+      - mountPoint: "/opt/incl/test"
+        source: "test"
+volumes:
+  test:
+    - mountPoint: "/opt/vol"
+      auxServices:
+        - test-aux-srv
+configs:
+  c1:
+    targets:
+      - refVar: "C1"
+        services:
+          - test-srv
+        auxServices:
+          - test-aux-srv
+    userInput:
+      name: "C1"
+      type: text
+  c2:
+    value: "test"
+    targets:
+      - refVar: "C2"
+        auxServices:
+          - test-aux-srv
