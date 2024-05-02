@@ -4,7 +4,7 @@ name: Test Module 3
 description: test 3
 license: Apache-2.0 license
 author: InfAI (CC SES)
-version: v0.0.1
+version: v0.0.2
 type: add-on
 deploymentType: single
 dependencies:
@@ -37,6 +37,8 @@ auxServices:
     include:
       - mountPoint: "/opt/incl/test"
         source: "test"
+auxImageSources:
+  - "nginxdemos/*"
 volumes:
   test:
     - mountPoint: "/opt/vol"
