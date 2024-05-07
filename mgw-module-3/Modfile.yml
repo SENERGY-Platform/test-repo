@@ -34,6 +34,8 @@ auxServices:
     include:
       - mountPoint: "/opt/incl/test"
         source: "test"
+  test-aux-srv-2:
+    name: Aux Test Service 2
 auxImageSources:
   - "nginxdemos/*"
 configs:
