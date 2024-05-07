@@ -31,19 +31,11 @@ serviceReferences:
 auxServices:
   test-aux-srv:
     name: Aux Test Service
-    tmpfs:
-      - mountPoint: "/opt/tmp"
-        size: 64Mb
     include:
       - mountPoint: "/opt/incl/test"
         source: "test"
 auxImageSources:
   - "nginxdemos/*"
-volumes:
-  test:
-    - mountPoint: "/opt/vol"
-      auxServices:
-        - test-aux-srv
 configs:
   c1:
     targets:
@@ -55,9 +47,3 @@ configs:
     userInput:
       name: "C1"
       type: text
-  c2:
-    value: "test"
-    targets:
-      - refVar: "C2"
-        auxServices:
-          - test-aux-srv
