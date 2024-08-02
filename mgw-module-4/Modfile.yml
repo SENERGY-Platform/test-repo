@@ -2,7 +2,7 @@ modfileVersion: "v1"
 id: github.com/SENERGY-Platform/test-repo/mgw-module-4
 name: Zigbee Device-Connector
 description: "after deployment the zigbee2mqtt ui has to be used to configure the permit_join"
-version: v0.1.4
+version: v0.1.5
 type: device-connector
 deploymentType: single
 license: "Apache License 2.0"
@@ -37,9 +37,9 @@ services:
     image: koenkk/zigbee2mqtt:1.37.0
     runConfig:
       pseudoTTY: true
-    include:
-      - mountPoint: "/dev/ttyACM0"
-        source: "test"
+    ports:
+      - port: 8080
+        hostPort: 8092
     httpEndpoints:
       - name: Web UI
         port: 8080
