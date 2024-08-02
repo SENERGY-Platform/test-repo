@@ -2,15 +2,15 @@ modfileVersion: "v1"
 id: github.com/SENERGY-Platform/test-repo/mgw-module-4
 name: Zigbee Device-Connector
 description: "after deployment the zigbee2mqtt ui has to be used to configure the permit_join"
-version: v0.1.1
+version: v0.1.2
 type: device-connector
 deploymentType: single
 license: "Apache License 2.0"
-dependencies:
-  github.com/SENERGY-Platform/mgw-mqtt-broker:
-    version: <v2.0.0
-    requiredServices:
-      broker:
+#dependencies:
+#  github.com/SENERGY-Platform/mgw-mqtt-broker:
+#    version: <v2.0.0
+#    requiredServices:
+#      broker:
 #        - refVar: MGW_MQTT_BROKER
 #          template: "tcp://{ref}:1881"
 #          services:
@@ -19,10 +19,10 @@ dependencies:
 #          template: "tcp://{ref}:1881"
 #          services:
 #            - mgw-zigbee-dc
-        - refVar: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
-          template: "tcp://{ref}:1881"
-          services:
-            - zigbee2mqtt
+#        - refVar: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
+#          template: "tcp://{ref}:1881"
+#          services:
+#            - zigbee2mqtt
 #hostResources:
 #  device:
 #    userInput:
@@ -48,11 +48,11 @@ services:
 #  mgw-zigbee-dc:
 #    name: mgw-zigbee-dc
 #    image: ghcr.io/senergy-platform/mgw-zigbee-dc:v1.0.4
-volumes:
-  zigbee2mqtt_store:
-    - mountPoint: /app/data
-      services:
-        - zigbee2mqtt
+#volumes:
+#  zigbee2mqtt_store:
+#    - mountPoint: /app/data
+#      services:
+#        - zigbee2mqtt
 #secrets:
 #  auth:
 #    type: basic-auth
@@ -67,47 +67,47 @@ volumes:
 #          - mgw-zigbee-dc
 #    userInput:
 #      name: Auth Credentials
-configs:
-  zigbee2mqttSerialAdapter:
-    dataType: string
-    value: ""
-    optional: true
-    targets:
-      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER
-        services:
-          - zigbee2mqtt
-    optionsExt: true
-    options:
-      - ""
-      - "deconz"
-    userInput:
-      type: text
-      name: SERIAL_ADAPTER
-      description: "USB connected adapters (ConBee / ConBee II / ConBee III) and Raspberry Pi GPIO modules (RaspBee and RaspBee II) may need to use 'deconz'"
-  zigbee2mqttSerialBaudrate:
-    dataType: string
-    value: ""
-    optional: true
-    targets:
-      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_BAUDRATE
-        services:
-          - zigbee2mqtt
-    optionsExt: true
-    options:
-      - ""
-      - "38400"
-      - "115200"
-    userInput:
-      type: text
-      name: SERIAL_BAUDRATE
-      description: "RaspBee2 may need to use 38400; ConBee3 may need to use 115200"
-  tz:
-    dataType: string
-    value: "Europe/Berlin"
-    targets:
-      - refVar: TZ
-        services:
-          - zigbee2mqtt
+#configs:
+#  zigbee2mqttSerialAdapter:
+#    dataType: string
+#    value: ""
+#    optional: true
+#    targets:
+#      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER
+#        services:
+#          - zigbee2mqtt
+#    optionsExt: true
+#    options:
+#      - ""
+#      - "deconz"
+#    userInput:
+#      type: text
+#      name: SERIAL_ADAPTER
+#      description: "USB connected adapters (ConBee / ConBee II / ConBee III) and Raspberry Pi GPIO modules (RaspBee and RaspBee II) may need to use 'deconz'"
+#  zigbee2mqttSerialBaudrate:
+#    dataType: string
+#    value: ""
+#    optional: true
+#    targets:
+#      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_BAUDRATE
+#        services:
+#          - zigbee2mqtt
+#    optionsExt: true
+#    options:
+#      - ""
+#      - "38400"
+#      - "115200"
+#    userInput:
+#      type: text
+#      name: SERIAL_BAUDRATE
+#      description: "RaspBee2 may need to use 38400; ConBee3 may need to use 115200"
+#  tz:
+#    dataType: string
+#    value: "Europe/Berlin"
+#    targets:
+#      - refVar: TZ
+#        services:
+#          - zigbee2mqtt
 #  zigbee2mqttSerialPort:
 #    dataType: string
 #    value: "/dev/zigbee"
@@ -115,13 +115,13 @@ configs:
 #      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
 #        services:
 #          - zigbee2mqtt
-  zigbee2mqttBaseTopic:
-    dataType: string
-    value: "zigbee2mqtt"
-    targets:
-      - refVar: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
-        services:
-          - zigbee2mqtt
+#  zigbee2mqttBaseTopic:
+#    dataType: string
+#    value: "zigbee2mqtt"
+#    targets:
+#      - refVar: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
+#        services:
+#          - zigbee2mqtt
 #  mqttClientId:
 #    dataType: string
 #    value: "mgw-zigbee-dc_zigbee"
@@ -184,12 +184,12 @@ configs:
 #      type: text
 #      name: Permission Search URL
 #      group: platform
-inputGroups:
-  mqtt:
-    name: "MQTT"
-  mgw:
-    name: "MGW"
-  platform:
-    name: "Platform"
-  zigbee:
-    name: "Zigbee"
+#inputGroups:
+#  mqtt:
+#    name: "MQTT"
+#  mgw:
+#    name: "MGW"
+#  platform:
+#    name: "Platform"
+#  zigbee:
+#    name: "Zigbee"
