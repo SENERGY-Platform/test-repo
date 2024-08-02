@@ -2,7 +2,7 @@ modfileVersion: "v1"
 id: github.com/SENERGY-Platform/test-repo/mgw-module-4
 name: Zigbee Device-Connector
 description: "after deployment the zigbee2mqtt ui has to be used to configure the permit_join"
-version: v0.1.3
+version: v0.1.4
 type: device-connector
 deploymentType: single
 license: "Apache License 2.0"
@@ -23,14 +23,14 @@ license: "Apache License 2.0"
 #          template: "tcp://{ref}:1881"
 #          services:
 #            - zigbee2mqtt
-#hostResources:
-#  device:
-#    userInput:
-#      name: Zigbee Controller Device
-#    targets:
-#      - mountPoint: "/dev/zigbee"
-#        services:
-#          - zigbee2mqtt
+hostResources:
+  device:
+    userInput:
+      name: Zigbee Controller Device
+    targets:
+      - mountPoint: "/dev/zigbee"
+        services:
+          - zigbee2mqtt
 services:
   zigbee2mqtt:
     name: zigbee2mqtt
@@ -70,7 +70,7 @@ services:
 #          - mgw-zigbee-dc
 #    userInput:
 #      name: Auth Credentials
-#configs:
+configs:
 #  zigbee2mqttSerialAdapter:
 #    dataType: string
 #    value: ""
@@ -111,13 +111,13 @@ services:
 #      - refVar: TZ
 #        services:
 #          - zigbee2mqtt
-#  zigbee2mqttSerialPort:
-#    dataType: string
-#    value: "/dev/zigbee"
-#    targets:
-#      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
-#        services:
-#          - zigbee2mqtt
+  zigbee2mqttSerialPort:
+    dataType: string
+    value: "/dev/zigbee"
+    targets:
+      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
+        services:
+          - zigbee2mqtt
 #  zigbee2mqttBaseTopic:
 #    dataType: string
 #    value: "zigbee2mqtt"
