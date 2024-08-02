@@ -108,13 +108,13 @@ configs:
       - refVar: TZ
         services:
           - zigbee2mqtt
-  zigbee2mqttSerialPort:
-    dataType: string
-    value: "/dev/zigbee"
-    targets:
-      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
-        services:
-          - zigbee2mqtt
+#  zigbee2mqttSerialPort:
+#    dataType: string
+#    value: "/dev/zigbee"
+#    targets:
+#      - refVar: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
+#        services:
+#          - zigbee2mqtt
   zigbee2mqttBaseTopic:
     dataType: string
     value: "zigbee2mqtt"
